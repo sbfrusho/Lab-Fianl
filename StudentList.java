@@ -19,8 +19,7 @@ public class StudentList {
 			} catch (Exception e){}
 			System.out.println("Data Loaded.");
 		}
-		else if(args[0].equals("r")) 
-		{
+		else if(args[0].equals("r")) {
 			System.out.println("Loading data ...");			
 			try {
 				BufferedReader s = new BufferedReader(
@@ -51,8 +50,7 @@ public class StudentList {
 							
 			System.out.println("Data Loaded.");	
 		}
-		else if(args[0].contains("?")) 
-		{
+		else if(args[0].contains("?")) {
 			System.out.println("Loading data ...");			
 			try {
 				BufferedReader s = new BufferedReader(
@@ -71,8 +69,7 @@ public class StudentList {
 			} catch (Exception e){} 
 			System.out.println("Data Loaded.");				
 		}
-		else if(args[0].contains("c")) 
-		{
+		else if(args[0].contains("c")) {
 			System.out.println("Loading data ...");			
 			try {
 				BufferedReader s = new BufferedReader(
