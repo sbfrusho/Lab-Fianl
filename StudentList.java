@@ -12,7 +12,7 @@ public class StudentList {
 					new InputStreamReader(
 							new FileInputStream("students.txt"))); 
 			String r = s.readLine();
-			String i[] = r.split(",");			
+			String i[] = r.split(",");
 			for(String j : i) { System.out.println(j); }
 			} catch (Exception e){} 
 			System.out.println("Data Loaded.");
@@ -57,7 +57,7 @@ public class StudentList {
 					new InputStreamReader(
 							new FileInputStream("students.txt"))); 
 			String r = s.readLine();
-			String i[] = r.split(",");	
+			String i[] = r.split(", ");
 			boolean done = false;
 			String t = args[0].substring(1);
 			for(int idx = 0; idx<i.length && !done; idx++) {
