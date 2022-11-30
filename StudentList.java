@@ -88,6 +88,5 @@ public class StudentList {
 			} catch (Exception e){} 
 			System.out.println("Data Loaded.");				
 		}
-
 	}
 }
