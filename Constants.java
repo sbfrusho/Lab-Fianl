@@ -14,4 +14,5 @@ public class Constants {
     public char charComma = ',';
     public String wordFound = " word(s) found ";
     public String wrongArgument = "Wrong argument pass!.Please try a,r,c,+ or ?";
+    public String doesNotFound = " does not found";
 }

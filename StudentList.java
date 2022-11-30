@@ -53,13 +53,15 @@ public class StudentList {
 				System.out.println(constants.loadData);
 				readFile();
 				String names[] = studentName.split(constants.stringComma);
-				boolean done = false;
 				String name = args[0].substring(1);
-				for(int idx = 0; idx<names.length && !done; idx++) {
+				int idx;
+				for(idx = 0; idx<names.length; idx++) {
 				if(names[idx].equals(name)) {
 					System.out.println(constants.foundName);
-					done=true;
 					}
+				}
+				if(idx == names.length){
+					System.out.println(name + constants.doesNotFound);
 				}
 			System.out.println(constants.dataLoad);
 		}
