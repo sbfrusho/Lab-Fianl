@@ -89,5 +89,8 @@ public class StudentList {
 			} catch (Exception e){} 
 			System.out.println("Data Loaded.");				
 		}
+		else{
+			System.out.println("Wrong argument pass!.Please try a,r,c,+ or ?");
+		}
 	}
 }
