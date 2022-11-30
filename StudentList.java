@@ -3,61 +3,54 @@ import java.text.*;
 import java.util.*;
 public class StudentList {
 	public static String studentName;
+
+	public static void writeFile(String readName){
+		try {
+			BufferedWriter bufferedWriter = new BufferedWriter(
+					new FileWriter("students.txt"));
+			bufferedWriter.flush();
+			bufferedWriter.write(readName);
+			bufferedWriter.close();
+		} catch (Exception e) {}
+	}
+
+	public static void readFile(){
+		try {
+			BufferedReader bufferedReader = new BufferedReader
+					(new InputStreamReader
+							(new FileInputStream("students.txt")));
+			studentName = bufferedReader.readLine();
+		} catch(Exception e){}
+	}
 	public static void main(String[] args) {
 
 //		Check arguments
 		if(args[0].equals("a")) {
-			System.out.println("Loading data ...");			
-			try {
-				BufferedReader bufferedReader = new BufferedReader(
-						new InputStreamReader(
-								new FileInputStream("students.txt")));
-				String studentName = bufferedReader.readLine();
+				System.out.println("Loading data ...");
+				readFile();
 				String names[] = studentName.split(", ");
 				for(String n : names) {
 					System.out.println(n);
 				}
-			} catch (Exception e){}
+
 			System.out.println("Data Loaded.");
 		}
 		else if(args[0].equals("r")) {
-			System.out.println("Loading data ...");			
-			try {
-				BufferedReader bufferedReader = new BufferedReader(
-						new InputStreamReader(
-								new FileInputStream("students.txt")));
-				studentName = bufferedReader.readLine();
-//				System.out.println(studentName);
-				String names[] = studentName.split(", ");
-				Random random = new Random();
-				int index = random.nextInt();
-				System.out.println(names[index]);
-			} catch (Exception e){} 
-			System.out.println("Data Loaded.");			
+			System.out.println("Loading data ...");
+			readFile();
+			String names[] = studentName.split(", ");
+			System.out.println(names[new Random().nextInt(names.length)]);
+			System.out.println("Data Loaded.");
 		}
 		else if(args[0].contains("+")){
-			System.out.println("Loading data ...");			
-			try {
-				BufferedWriter bufferedWriter = new BufferedWriter(
-						new FileWriter("students.txt", true));
-				studentName = args[0].substring(1);
-				Date date = new Date();
-	        	String formate = "dd/mm/yyyy-hh:mm:ss a";
-	        	DateFormat dateFormat = new SimpleDateFormat(formate);
-	        	String formattedDate= dateFormat.format(date);
-				bufferedWriter.write(", "+date+"\nList last updated on "+formattedDate);
-				bufferedWriter.close();
-			} catch (Exception e){}
-							
-			System.out.println("Data Loaded.");	
-		}
+				System.out.println("Loading data ...");
+				readFile();
+				writeFile(studentName + ", " + args[0].substring(1) + "\nlist updated on " + new SimpleDateFormat("dd/mm/yyyy-hh:mm:ss a").format(new Date()));
+				System.out.println("Data Loaded.");
+			}
 		else if(args[0].contains("?")) {
-			System.out.println("Loading data ...");			
-			try {
-				BufferedReader bufferedReader = new BufferedReader(
-						new InputStreamReader(
-								new FileInputStream("students.txt")));
-				studentName = bufferedReader.readLine();
+				System.out.println("Loading data ...");
+				readFile();
 				String names[] = studentName.split(", ");
 				boolean done = false;
 				String name = args[0].substring(1);
@@ -67,16 +60,11 @@ public class StudentList {
 					done=true;
 					}
 				}
-			} catch (Exception e){} 
 			System.out.println("Data Loaded.");				
 		}
 		else if(args[0].contains("c")) {
-			System.out.println("Loading data ...");			
-			try {
-				BufferedReader bufferedReader = new BufferedReader(
-						new InputStreamReader(
-								new FileInputStream("students.txt")));
-				studentName = bufferedReader.readLine();
+				System.out.println("Loading data ...");
+				readFile();
 				char names[] = studentName.toCharArray();
 				int count=1;
 				for(char name:names) {
@@ -85,7 +73,6 @@ public class StudentList {
 				}
 			}
 			System.out.println(count +" word(s) found ");
-			} catch (Exception e){} 
 			System.out.println("Data Loaded.");				
 		}
 		else{
